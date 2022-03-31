@@ -1,5 +1,0 @@
-config BR2_PACKAGE_LDD
-	bool "ldd"
-   depends on BR2_LINUX_KERNEL
-	help
-	  Loads misc modules and scull components packages to root filesystem.
