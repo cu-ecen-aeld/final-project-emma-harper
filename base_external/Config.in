@@ -1,0 +1,2 @@
+source "$BR2_EXTERNAL_project_base_PATH/package/wheel/Config.in"
+source "$BR2_EXTERNAL_project_base_PATH/package/sense-hat/Config.in"

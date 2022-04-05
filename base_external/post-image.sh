@@ -19,6 +19,16 @@ do
 # enable I2C
 dtparam=i2c_arm=on
 __EOF__
+
+		fi
+		;;
+		--add-SPI)
+		if ! grep -qE '^dtparam=spi=on' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+# enable SPi
+dtparam=spi=on
+__EOF__
+
 		fi
 		;;
 		
@@ -30,6 +40,12 @@ __EOF__
 	esac
 
 done
+
+cp package/busybox/S10mdev ${TARGET_DIR}/etc/init.d/S10mdev
+chmod 755 ${TARGET_DIR}/etc/init.d/S10mdev
+cp package/busybox/mdev.conf ${TARGET_DIR}/etc/mdev.conf
+cp board/raspberrypi3/interfaces ${TARGET_DIR}/etc/network/interfaces
+cp board/raspberrypi3/wpa_supplicant.conf ${TARGET_DIR}/etc/wpa_supplicant.conf
 
 # Pass an empty rootpath. genimage makes a full copy of the given rootpath to
 # ${GENIMAGE_TMP}/root so passing TARGET_DIR would be a waste of time and disk
