@@ -19,12 +19,12 @@ AESD_SENSEHATLIVE_GIT_SUBDIR = sensehatlive
 define AESD_SENSEHATLIVE_INSTALL_TARGET_CMDS
 	$(INSTALL) -d 0755 $(@D)/sensehatlive/ $(TARGET_DIR)/opt/sensehatlilve/
 
-	$(INSTALL) -m 0755 $(@D)/sensehatlive//basebroker.py $(TARGET_DIR)/opt/sensehatlilve/basebroker.py
-	$(INSTALL) -m 0755 $(@D)/sensehatlive//cloud4Rpi.py $(TARGET_DIR)/opt/sensehatlilve/cloud4Rpi.py
-	$(INSTALL) -m 0755 $(@D)/sensehatlive//main.py $(TARGET_DIR)/opt/sensehatlilve/main.py
-	$(INSTALL) -m 0755 $(@D)/sensehatlive//rabbitmq.py $(TARGET_DIR)/opt/sensehatlilve/rabbitmq.py
-	$(INSTALL) -m 0755 $(@D)/sensehatlive//sensehathandler.py $(TARGET_DIR)/opt/sensehatlilve/sensehathandler.py
-	$(INSTALL) -m 0755 $(@D)/sensehatlive//config.json $(TARGET_DIR)/opt/sensehatlilve/config.json
+	$(INSTALL) -m 0755 $(@D)/sensehatlive/sensehatlive/basebroker.py $(TARGET_DIR)/opt/sensehatlilve/basebroker.py
+	$(INSTALL) -m 0755 $(@D)/sensehatlive/sensehatlive/cloud4Rpi.py $(TARGET_DIR)/opt/sensehatlilve/cloud4Rpi.py
+	$(INSTALL) -m 0755 $(@D)/sensehatlive/sensehatlive/main.py $(TARGET_DIR)/opt/sensehatlilve/main.py
+	$(INSTALL) -m 0755 $(@D)/sensehatlive/sensehatlive/rabbitmq.py $(TARGET_DIR)/opt/sensehatlilve/rabbitmq.py
+	$(INSTALL) -m 0755 $(@D)/sensehatlive/sensehatlive/sensehathandler.py $(TARGET_DIR)/opt/sensehatlilve/sensehathandler.py
+	$(INSTALL) -m 0755 $(@D)/sensehatlive/sensehatlive/config.json $(TARGET_DIR)/opt/sensehatlilve/config.json
 
 	$(INSTALL) -d 0755 $(@D)/sensehatlive/sensehatlive/log $(TARGET_DIR)/opt/sensehatlilve/log/
 	$(INSTALL) -m 0755 $(@D)/sensehatlive/sensehatlive/log/logger.py $(TARGET_DIR)/opt/sensehatlilve/log/logger.py
@@ -34,7 +34,7 @@ define AESD_SENSEHATLIVE_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/sensehatlive/lib/logutils/* $(TARGET_DIR)/opt/sensehatlilve/lib/logutils/
 
 	$(INSTALL) -m 0755 $(@D)/sensehatlive/lib/RTIMULib-7.2.1.egg-info $(TARGET_DIR)/opt/sensehatlilve/lib/RTIMULib-7.2.1.egg-info
-
+	$(INSTALL) -m 0755 $(@D)/sensehatlive/lib/RTIMU.cpython-39-arm-linux-gnueabihf.so $(TARGET_DIR)/opt/sensehatlilve/lib/RTIMU.cpython-39-arm-linux-gnueabihf.so
 endef
 
 $(eval $(generic-package))

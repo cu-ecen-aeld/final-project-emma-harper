@@ -23,6 +23,9 @@ import os
 import argparse
 import signal
 import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib/'))
+
 import threading
 import time
 import json
