@@ -5,7 +5,7 @@
 File Name   : basebroker.py
 Author      : Kenneth A. Jones
               Spring 2022
-              Embedded Interface Design - ECEN 5783
+              AESD
               University of Colorado Boulder
 Email       : kenneth.jones@colorado.edu
 Platform    : Linux VM (32/64 Bit)

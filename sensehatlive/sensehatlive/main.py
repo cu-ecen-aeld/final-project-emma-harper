@@ -3,9 +3,9 @@
 """
 ------------------------------------------------------------------------------------------------------------------------
 File Name   : superproject.py
-Author      : Kenneth Jones
+Author      : Emma Harper
               Spring 2022
-              Embedded Interface Design - ECEN 5783
+              AESD
               University of Colorado Boulder
 Email       : emha1608@colorado.edu
 Platform    : Linux VM (32/64 Bit), Raspberry Pi 3B
@@ -13,7 +13,7 @@ IDE Used    : Visual Studio Code IDE
 Date        : 30 March 2022
 Version     : 1.0
 
-Description : Sense Hat producer script
+Description : Main sense hat live project
 
 Reference   :
 ------------------------------------------------------------------------------------------------------------------------
@@ -74,14 +74,16 @@ def main(args):
         if broker_type == 'Producer':
             while True:
                 try:
+                    orientation = {'pitch': 2, 'roll': 3, 'yaw': 4}
+                    accelerometer = {'pitch': 7, 'roll': 6, 'yaw': 5}
+                    
                     data = {
                     "temperature": 75,
                     "humidity": 20,
                     "pressure": 44,
-                    "accel": [5,6,7],
-                    "gyro": [9,10,11],
-                    "mag": [2,3,4]
-
+                    "compass": 200,
+                    "acceleration": accelerometer,
+                    "orientation": orientation
                     }
 #            json_str = json.dumps(data)
                     success = broker.publish(data)

@@ -1,3 +1,22 @@
+"""
+------------------------------------------------------------------------------------------------------------------------
+File Name   : rabbitmq.py
+Author      : Emma Harper
+              Spring 2022
+              AESD
+              University of Colorado Boulder
+Email       : emha1608@colorado.edu
+Platform    : Linux VM (32/64 Bit), Raspberry Pi 3B
+IDE Used    : Visual Studio Code IDE
+Date        : 30 March 2022
+Version     : 1.0
+
+Description : RabbitMQ consumer and producer
+
+Reference   :
+------------------------------------------------------------------------------------------------------------------------
+"""
+
 import os
 import sys
 
@@ -175,25 +194,18 @@ class RabbitMQConsumer(MessageBroker):
         self.acknowledge_message(basic_deliver.delivery_tag)
         msg = body.decode()
         self.log_rx(msg)
-
+        
         try:
             res = json.loads(msg)
             temperature = res["temperature"]
-            print("temperature received is: " + str(temperature))
             humidity = res["humidity"]
-            print("humidity received is: " + str(humidity))        
             self.cloud_service.send_sensor_update(temperature, humidity)
-            print(res["pressure"])
-            print(res["accel"][0])
-            print(res["gyro"])
-            print(res["mag"])
             pressure = res["pressure"]
-            accel = [res["accel"][0], res["accel"][1], res["accel"][2]]
-            gyro = [res["gyro"][0], res["gyro"][1], res["gyro"][2]]
-            mag = [res["mag"][0], res["mag"][1], res["mag"][2]]
+            accel = [res["acceleration"]["pitch"], res["acceleration"]["roll"], res["acceleration"]["yaw"]]
+            orient = [res["orientation"]["pitch"], res["orientation"]["roll"], res["orientation"]["yaw"]]
+            compass = res["compass"]
             
-            self.sensehat.update_led_values(pressure, accel, gyro, mag)
-            print("here")
+            self.sensehat.update_led_values(pressure, accel, compass, orient)
 
         except:
             logger.error('Message received is not in JSON format')

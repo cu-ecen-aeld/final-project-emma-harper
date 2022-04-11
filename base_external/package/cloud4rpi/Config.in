@@ -1,0 +1,4 @@
+config BR2_PACKAGE_CLOUD4RPI
+	bool "cloud4rpi"
+	help
+	  Cloud4Rpi is a web based cloud storage service for the raspberry pi
