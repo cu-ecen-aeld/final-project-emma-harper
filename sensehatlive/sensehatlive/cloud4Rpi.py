@@ -31,26 +31,34 @@ class Cloud4RPi():
                 'type': 'numeric',
                 'bind': self.get_humidity
             },
+            'pressure': {
+                'type': 'numeric',
+                'bind': self.get_pressure
+            },
         
         }
         self.device.declare(self.variables)
         self.device.publish_config()
         self.temperature = 0
         self.humidity = 0
+        self.pressure = 0
         
     def get_temperature(self):
-        return self.temperature
+        return round(self.temperature,2)
     
     def get_humidity(self):
-        return self.humidity
+        return round(self.humidity,2)
 
-    def send_sensor_update(self, temperature, humidity):
+    def get_pressure(self):
+        return round(self.pressure,2)
+
+    def send_sensor_update(self, temperature, humidity, pressure):
         # Put variable declarations here
         # Available types: 'bool', 'numeric', 'string', 'location'
-        print(temperature)
-        print(humidity)
+        
         self.temperature = temperature
         self.humidity = humidity
+        self.pressure = pressure
 
         try:
 

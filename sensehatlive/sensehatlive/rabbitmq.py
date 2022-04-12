@@ -1,22 +1,3 @@
-"""
-------------------------------------------------------------------------------------------------------------------------
-File Name   : rabbitmq.py
-Author      : Emma Harper
-              Spring 2022
-              AESD
-              University of Colorado Boulder
-Email       : emha1608@colorado.edu
-Platform    : Linux VM (32/64 Bit), Raspberry Pi 3B
-IDE Used    : Visual Studio Code IDE
-Date        : 30 March 2022
-Version     : 1.0
-
-Description : RabbitMQ consumer and producer
-
-Reference   :
-------------------------------------------------------------------------------------------------------------------------
-"""
-
 import os
 import sys
 
@@ -199,13 +180,15 @@ class RabbitMQConsumer(MessageBroker):
             res = json.loads(msg)
             temperature = res["temperature"]
             humidity = res["humidity"]
-            self.cloud_service.send_sensor_update(temperature, humidity)
             pressure = res["pressure"]
+
+            self.cloud_service.send_sensor_update(temperature, humidity, pressure)
             accel = [res["acceleration"]["pitch"], res["acceleration"]["roll"], res["acceleration"]["yaw"]]
             orient = [res["orientation"]["pitch"], res["orientation"]["roll"], res["orientation"]["yaw"]]
             compass = res["compass"]
             
-            self.sensehat.update_led_values(pressure, accel, compass, orient)
+            self.sensehat.update_led_values(accel, compass, orient)
+            print("here")
 
         except:
             logger.error('Message received is not in JSON format')
