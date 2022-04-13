@@ -188,7 +188,6 @@ class RabbitMQConsumer(MessageBroker):
             compass = res["compass"]
             
             self.sensehat.update_led_values(accel, compass, orient)
-            print("here")
 
         except:
             logger.error('Message received is not in JSON format')

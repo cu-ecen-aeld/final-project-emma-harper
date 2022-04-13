@@ -39,13 +39,13 @@ class SenseHatHandler():
             #event_is_set = self.e.wait()
             self.sense.show_message("accel: R:" + str(self.accel[0]) + 
                                         " P:" + str(self.accel[1])+ 
-                                        " Y:" + str(self.accel[2]) + ")",
+                                        " Y:" + str(self.accel[2]),
                                         text_colour=blue, scroll_speed=.05)
             self.sense.show_message("compass: " + self.compass,
                                         text_colour=blue, scroll_speed=.05)
             self.sense.show_message("orient: R:" + str(self.orientation[0]) + 
                                         " P:" + str(self.orientation[1])+ 
-                                        " Y:" + str(self.orientation[2]) + ")",
+                                        " Y:" + str(self.orientation[2]),
                                         text_colour=blue, scroll_speed=.05)
             #self.e.clear()
             #self.sense.show_message("Pressure: " + str(self.pressure), text_color=blue, scroll_speed=0.5)     
