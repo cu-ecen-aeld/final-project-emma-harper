@@ -2,8 +2,8 @@
 
 """
  @Programmer(s)
-    Kenneth A. Jones II
-    kejo1166@colorado.edu
+    Emma Harper
+    emha1608@colorado.edu
  @Company
     University of Colorado Boulder
 @Description
