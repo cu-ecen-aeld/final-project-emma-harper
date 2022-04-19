@@ -1,6 +1,6 @@
 #! /bin/sh
 
-DAEMON=/opt/sensehatlive/main.py
+DAEMON=/opt/sensehatlive/sensehatlive.py
 PIDFILE=/opt/sensehatlive/sensehatlive.pid
 
 case "$1" in
