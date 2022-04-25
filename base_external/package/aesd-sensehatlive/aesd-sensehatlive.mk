@@ -6,7 +6,7 @@
 ##############################################################
 
 #TODO: Fill up the contents below in order to reference your assignment 3 git contents
-AESD_SENSEHATLIVE_VERSION = 3198a459e213137d6e902eec55fd6a1d151c4a2f
+AESD_SENSEHATLIVE_VERSION = 5c53363991ab21a81cdcf8b1b631f2ad59629dda
 # Note: Be sure to reference the *ssh* repository URL here (not https) to work properly
 # with ssh keys and the automated build/test system.
 # Your site should start with git@github.com:

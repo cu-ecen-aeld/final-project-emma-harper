@@ -37,10 +37,10 @@ class SenseHatHandler():
         blue = (0, 0, 255)
         while True:
             #event_is_set = self.e.wait()
-            self.sense.show_message("accel: R:" + str(self.accel[0]) + 
-                                        " P:" + str(self.accel[1])+ 
-                                        " Y:" + str(self.accel[2]),
-                                        text_colour=blue, scroll_speed=.05)
+            # self.sense.show_message("accel: R:" + str(self.accel[0]) + 
+            #                             " P:" + str(self.accel[1])+ 
+            #                             " Y:" + str(self.accel[2]),
+            #                             text_colour=blue, scroll_speed=.05)
             self.sense.show_message("compass: " + self.compass,
                                         text_colour=blue, scroll_speed=.05)
             self.sense.show_message("orient: R:" + str(self.orientation[0]) + 
